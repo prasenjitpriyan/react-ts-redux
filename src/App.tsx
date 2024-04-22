@@ -1,8 +1,20 @@
+import Header from "./components/Header.tsx";
+import Shop from "./components/Shop.tsx";
+import Product from "./components/Product.tsx";
+import { DUMMY_PRODUCTS } from "./dummy-products.ts";
+
 function App() {
   return (
-    <div className="bg-green-950 min-h-screen flex justify-center items-center text-white">
-      <h1>Hello world</h1>
-    </div>
+    <>
+      <Header />
+      <Shop>
+        {DUMMY_PRODUCTS.map((product) => (
+          <li key={product.id}>
+            <Product {...product} />
+          </li>
+        ))}
+      </Shop>
+    </>
   );
 }
 
